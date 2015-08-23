@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<center><h1>Quizzes</h1></center>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quizzes.each do |quiz| %>
+      <tr class="active">
+        <td>
+<%= link_to quiz.title, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> <%= quiz.title %>
+<% end %>
+
+        </td>
+        <td><%= link_to 'Show', quiz, class: 'btn btn-primary btn-xs'%></td>
+        <td><%= link_to 'Edit', edit_quiz_path(quiz), class: 'btn btn-info btn-xs' %></td>
+        <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?', class: 'btn btn-danger btn-xs'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Quiz', new_quiz_path, class: 'btn btn-primary btn-xs' %>
